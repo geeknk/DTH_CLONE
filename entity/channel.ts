@@ -1,0 +1,17 @@
+import {Entity,Column,PrimaryGeneratedColumn,BaseEntity, ManyToOne} from "typeorm"
+import { Plan } from "./plan";
+
+@Entity()
+export class Channel extends BaseEntity{
+    @PrimaryGeneratedColumn()
+    id!:number;
+
+    @Column()
+    category!:string;
+
+    @Column()
+    name!:string;
+
+    @ManyToOne(() => Plan, plan => plan.channels)
+    plan!:Plan;
+}
