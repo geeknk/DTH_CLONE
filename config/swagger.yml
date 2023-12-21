@@ -1,0 +1,186 @@
+openapi: 3.0.0
+info:
+  title: DTH
+  version: 1.0.0
+servers:
+  - url: localhost://
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+tags:
+  - name: user
+  - name: plan
+  - name: channel
+  - name: subscribe
+paths:
+  /005/user/auth/delete:
+    delete:
+      tags:
+        - user
+      summary: delete_user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /005/user/auth/register:
+    post:
+      tags:
+        - user
+      summary: add_user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: amit
+                firstname: amit
+                lastname: singh
+                email: amit@dth.com
+                password: amit
+                mobile: 1111333456
+                role: 2
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /005/user/auth/signin:
+    post:
+      tags:
+        - user
+      summary: login_user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: amit@dth.com
+                password: amit
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /005/user/all-subscription:
+    get:
+      tags:
+        - user
+      summary: get-all-subscription
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /005/plan/all:
+    get:
+      tags:
+        - plan
+      summary: get all plan
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /005/plan/add:
+    post:
+      tags:
+        - plan
+      summary: add plan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                category: Sports
+                price: 299 Rs
+                duration: 2 months
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /005/plan/delete/3:
+    delete:
+      tags:
+        - plan
+      summary: plan_delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /005/channel/add:
+    post:
+      tags:
+        - channel
+      summary: add_channel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                category: sports
+                name: Star Sports 1 Hindi HD
+                plan: 1
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /005/channel/get:
+    get:
+      tags:
+        - channel
+      summary: get all channels
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /005/channel/delete:
+    delete:
+      tags:
+        - channel
+      summary: delete channel
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /005/subscription/1:
+    post:
+      tags:
+        - subscribe
+      summary: subscribe
+      requestBody:
+        content: {}
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
