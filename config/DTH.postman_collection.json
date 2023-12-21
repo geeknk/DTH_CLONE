@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "d21efc7e-6da6-4ab4-9c78-fe6ace1c0ce3",
+		"name": "DTH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30739202"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "delete_user",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaXRAZHRoLmNvbSIsImlkIjo0LCJ1c2VybmFtZSI6ImFtaXQiLCJpYXQiOjE3MDMwNzMzNDEsImV4cCI6MTcwMzA3Njk0MX0.gIEcXYOjnQVwWDyZ_XZng1Q9GcNk_zf5Y1BVa9DWfDs",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3005/user/auth/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"user",
+								"auth",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"amit\",\r\n    \"firstname\":\"amit\",\r\n    \"lastname\":\"singh\",\r\n    \"email\":\"amit@dth.com\",\r\n    \"password\":\"amit\",\r\n    \"mobile\":1111333456,\r\n    \"role\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/user/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"user",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"amit@dth.com\",\r\n    \"password\":\"amit\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/user/auth/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"user",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-subscription",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhaGlsQHRlc3QuY29tIiwiaWQiOjEsInVzZXJuYW1lIjoic2FoaWwiLCJpYXQiOjE3MDMwNjg4NDEsImV4cCI6MTcwMzA3MjQ0MX0.m6KmcIqNfU6dtH794CBHsB1wSwDTCrQR-XVePSq3NdE",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3005/user/all-subscription",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"user",
+								"all-subscription"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "plan",
+			"item": [
+				{
+					"name": "get all plan",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3005/plan/all",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"plan",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add plan",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\":\"Sports\",\r\n    \"price\":\"299 Rs\",\r\n    \"duration\":\"2 months\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/plan/add",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"plan",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "plan_delete",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3005/plan/delete/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"plan",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "channel",
+			"item": [
+				{
+					"name": "add_channel",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\":\"sports\",\r\n    \"name\":\"Star Sports 1 Hindi HD\",\r\n    \"plan\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/channel/add",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"channel",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all channels",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3005/channel/get",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"channel",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete channel",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaXRAZHRoLmNvbSIsImlkIjo1LCJ1c2VybmFtZSI6ImFtaXQiLCJpYXQiOjE3MDMxNDQ0ODQsImV4cCI6MTcwMzE0ODA4NH0.WWGYfu-BjJlz0j9kX7Gq4N69s9GGHxXXvOrUSc6xVi0",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3005/channel/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"channel",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subscribe",
+			"item": [
+				{
+					"name": "subscribe",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhaGlsQHRlc3QuY29tIiwiaWQiOjEsInVzZXJuYW1lIjoic2FoaWwiLCJpYXQiOjE3MDMwNjg4NDEsImV4cCI6MTcwMzA3MjQ0MX0.m6KmcIqNfU6dtH794CBHsB1wSwDTCrQR-XVePSq3NdE",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3005/subscription/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"subscription",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
