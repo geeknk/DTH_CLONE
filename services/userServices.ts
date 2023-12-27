@@ -22,6 +22,10 @@ export const fetchUserData = async (email: string) : Promise<User | null> => {
   return await userRepository.findOne({where:{email}})
 };
 
+export const getAllUsers = async () : Promise<User[] | null> => {
+  return await userRepository.find()
+};
+
 export const deleteUser = async (id:number) : Promise<void> => {
   await userRepository.delete({id})
 };
@@ -82,8 +86,8 @@ export const subscribedPlan = async (planId:number,userId:number) : Promise<Subs
     Object.assign(new Subscription(), {
     startDate: (await expiry).currentDate,
     expiryDate:(await expiry).expiryDate,
-    plans: planId,
-    user: userId
+    plansId: planId,
+    userId: userId
     })
   )
   return await subscribeRepository.save(subscribe)

@@ -12,15 +12,23 @@ import postmanToOpenApi from 'postman-to-openapi'
 import path from "path"
 import YAML from 'yamljs'
 import swaggerUi from 'swagger-ui-express'
+import { graphqlHTTP } from "express-graphql"
+import {schema} from "./graphql/schema/index"
 
 const app = express()
 
 app.use(express.json())
 app.use(cookieParser())
-app.use("/005/user", userRouter)
-app.use("/005/plan", planRouter)
-app.use("/005/subscription", subscriptionRouter)
-app.use("/005/channel", channelRouter)
+app.use("/user", userRouter)
+app.use("/plan", planRouter)
+app.use("/subscription", subscriptionRouter)
+app.use("/channel", channelRouter)
+
+app.use('/graphql', graphqlHTTP({
+        schema,
+        graphiql:true
+    })
+)
 
 postmanToOpenApi(
     "config/DTH.postman_collection.json",

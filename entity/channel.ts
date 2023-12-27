@@ -11,6 +11,9 @@ export class Channel extends BaseEntity{
 
     @Column()
     name!:string;
+    
+    @Column()
+    planId!:number;
 
     @ManyToOne(() => Plan, plan => plan.channels)
     plan!:Plan;
