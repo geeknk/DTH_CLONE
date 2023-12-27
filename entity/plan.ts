@@ -1,4 +1,4 @@
-import {Entity,Column,PrimaryGeneratedColumn,BaseEntity, OneToMany, ManyToOne} from "typeorm"
+import {Entity,Column,PrimaryGeneratedColumn, OneToMany} from "typeorm"
 import { Channel } from "./channel";
 import { Subscription } from "./subscription";
 

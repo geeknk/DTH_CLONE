@@ -41,3 +41,12 @@ export const deleteUser = async (req:Request, res:Response) => {
     console.log(error);
   }
 };
+
+export const getAllUsers = async (req:Request, res:Response) => {
+  try {
+    const data = await userServices.getAllUsers()
+    res.status(201).send({ success: true, data})
+  } catch (error) {
+    console.log(error);
+  }
+};
