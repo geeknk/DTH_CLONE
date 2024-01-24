@@ -15,7 +15,7 @@ export const subscriptionType = new GraphQLObjectType({
     planId: { type: GraphQLInt },
     startDate: { type: GraphQLString },
     expiryDate: { type: GraphQLString },
-    plan:{ type:new GraphQLList(planType)},
+    plan: { type: new GraphQLList(planType) },
     // user:{ type:new GraphQLList(userType)}
   }),
 });

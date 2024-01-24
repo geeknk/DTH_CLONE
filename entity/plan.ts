@@ -1,25 +1,24 @@
-import {Entity,Column,PrimaryGeneratedColumn, OneToMany} from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { Channel } from "./channel";
 import { Subscription } from "./subscription";
 
 @Entity()
 export class Plan {
-    @PrimaryGeneratedColumn()
-    id!:number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column()
-    category!:string;
+  @Column()
+  category!: string;
 
-    @Column()
-    duration!:string;
+  @Column()
+  duration!: string;
 
-    @Column()
-    price!:string;
-    
-    @OneToMany(() => Subscription, subscribe => subscribe.plans)
-    subscribe!:Subscription;
+  @Column()
+  price!: string;
 
-    @OneToMany(() => Channel, channel => channel.plan)
-    channels!:Channel;
-    
+  @OneToMany(() => Subscription, (subscribe) => subscribe.plans)
+  subscribe!: Subscription;
+
+  @OneToMany(() => Channel, (channel) => channel.plan,{onUpdate: 'RESTRICT'})
+  channels!: Channel;
 }
