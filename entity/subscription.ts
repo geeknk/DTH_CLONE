@@ -15,19 +15,19 @@ export class Subscription extends BaseEntity {
 
   @Column()
   startDate!: Date;
-  
+
   @Column()
   expiryDate!: Date;
-  
+
   @Column()
   plansId!: number;
-  
+
   @Column()
   userId!: number;
 
   @ManyToOne(() => Plan, (plan) => plan.subscribe)
   plans!: Plan;
 
-  @ManyToOne(() => User, (user) => user.subscribe)
+  @ManyToOne(() => User, (user) => user.subscribe,{onDelete:"CASCADE"})
   user!: User;
 }

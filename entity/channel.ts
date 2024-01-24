@@ -1,20 +1,26 @@
-import {Entity,Column,PrimaryGeneratedColumn,BaseEntity, ManyToOne} from "typeorm"
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  BaseEntity,
+  ManyToOne,
+} from "typeorm";
 import { Plan } from "./plan";
 
 @Entity()
-export class Channel extends BaseEntity{
-    @PrimaryGeneratedColumn()
-    id!:number;
+export class Channel extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column()
-    category!:string;
+  @Column()
+  category!: string;
 
-    @Column()
-    name!:string;
-    
-    @Column()
-    planId!:number;
+  @Column()
+  name!: string;
 
-    @ManyToOne(() => Plan, plan => plan.channels)
-    plan!:Plan;
+  @Column()
+  planId!: number;
+
+  @ManyToOne(() => Plan, (plan) => plan.channels,{onUpdate: 'RESTRICT'})
+  plan!: Plan;
 }
